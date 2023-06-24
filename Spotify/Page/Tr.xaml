@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Spotify.Page.Tr"
+             BackgroundColor="#10072a"
+             Title="Tr">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="SourceColor">#f7f7f7</Color>
+            <Color x:Key="FrameColor">Transparent</Color>
+            <Color x:Key="TumuLabelColor">#b0b2b3</Color>
+
+            <Style x:Key="SourceTextStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource SourceColor}"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Padding" Value="75,0,0,0"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+            <Style x:Key="BordertStyle" TargetType="Border">
+                <Setter Property="BackgroundColor" Value="{StaticResource FrameColor}"/>
+                <Setter Property="Padding" Value="0,0,0,20"/>
+                <Setter Property="Margin" Value="12"/>
+                <Setter Property="StrokeShape" Value="RoundRectangle 30" />
+                <Setter Property="WidthRequest" Value="250" />
+                <Setter Property="HeightRequest" Value="300" />
+                <Setter Property="Stroke" Value="Transparent" />
+            </Style>
+            <Style x:Key="BorderTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="13"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout >
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="0,20,0,0" Spacing="20">
+
+                <Button Text="Türkçe Şarkılar"
+                TextColor="#b0b2b3"
+                            Margin="525,0,10,0"
+                BackgroundColor="Transparent"
+                 BorderColor="Transparent"/>
+
+                <Button Text="Ana Sayfa" 
+                            
+                TextColor="#b0b2b3"
+                BackgroundColor="Transparent" Clicked="Button_Clicked_1" BorderColor="Transparent"/>
+                
+
+                <Button Text="Yabancı Şarkılar"
+                            
+                TextColor="#b0b2b3"
+                BackgroundColor="Transparent"
+                Clicked="Button_Clicked_2" BorderColor="Transparent"/>
+
+                <Button Grid.Column="1" Margin="300,0,10,0" TextColor="Black" Text="Hesaptan Çık" BackgroundColor="White" Clicked="Button_Clicked_3" />
+                <Button Grid.Column="2" TextColor="Black" Text="Hesap" BackgroundColor="White" Clicked="Button_Clicked_4" />
+
+            </StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+
+            </Grid>
+            <StackLayout Orientation="Vertical"  >
+                <CollectionView  x:Name="musiccollection" ItemsSource="{Binding main}" Margin="10,0,0,0">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="5"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border  Style="{StaticResource BordertStyle}">
+                                <Border.Content>
+                                    <StackLayout>
+                                        <Button ImageSource="{Binding FotoUrl}" Margin="0,20,0,0" BackgroundColor="Transparent" BorderColor="Transparent" HeightRequest="250" WidthRequest="300" Clicked="Button_Clicked"/>
+                                        <Label Text="{Binding SarkıAd}" Style="{StaticResource BorderTextStyle}"/>
+                                    </StackLayout>
+                                </Border.Content>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

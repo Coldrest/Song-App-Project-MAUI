@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Spotify.Page.Parola"
+             BackgroundColor="#10072a"
+             Title="Parola">
+    <ScrollView>
+        <Grid>
+            <StackLayout Padding="150" Grid.Row="0" HorizontalOptions="Center" >
+
+
+                <Frame
+                    Padding="0"
+                    WidthRequest="400"
+                    BorderColor="Transparent"
+                    CornerRadius="50"
+                    HeightRequest="350">
+                    <Grid
+                        BackgroundColor="#1b3c0c"
+                        Padding="20,50,20,0"
+                        HorizontalOptions="FillAndExpand"
+                        RowSpacing="20 "
+                        VerticalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+
+                            </Grid.ColumnDefinitions>
+                            <Label
+                            FontAttributes="Bold"
+                            FontSize="24"
+                            Grid.Column="1"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Text="Şifre Değiştirme"
+                            TextColor="White" />
+                
+                        </Grid>
+
+                        <Label
+                            Grid.Row="1"
+                             Text="Yeni Şifre : "
+                             TextColor="White"
+                             Margin="0,20,0,0"
+                             HorizontalOptions="Start"
+                             VerticalOptions="Start" />
+                        <Entry
+                        x:Name="SifreEntry"
+                        BackgroundColor="#e5e6eb" 
+                        Grid.Row="2"
+                        TextColor="Black"
+                        Margin="0,8,0,0"
+                        MaxLength="8"
+                        HorizontalOptions="FillAndExpand"
+                        Placeholder="Yeni Şifrenizi Giriniz"
+                        VerticalOptions="FillAndExpand" />
+
+                        <Button
+                         WidthRequest="120"
+                        Grid.Row="3"
+                        BackgroundColor="#10072a"
+                        CornerRadius="20"
+                         TextColor="#e5e6eb"
+                        Text="Kaydet" 
+                            Clicked="Degistir"
+                        />
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Spotify.Sarkılar.Borderline"
+             Title="Borderline">
+    <AbsoluteLayout>
+        <Image Source="borderline1.gif" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Opacity="0.2" Aspect="AspectFill" />
+        <Grid AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <CollectionView x:Name="musiccollection" ItemsSource="{Binding main}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid VerticalOptions="Center" Padding="0,300,0,0">
+                            <Image Source="{Binding FotoUrl}" Aspect="AspectFit" VerticalOptions="Center" Margin="0,0,0,0" HorizontalOptions="Center" WidthRequest="200" HeightRequest="200" />
+                            <StackLayout Grid.Column="1" Margin="880,0,0,0" VerticalOptions="Center">
+                                <Label Text="{Binding SarkıAd}" FontSize="40" VerticalOptions="Center" />
+                                <Label Text="{Binding Sarkıcı}" Padding="40,0,0,0" FontSize="20" VerticalOptions="Center" />
+                                <Label Text="{Binding Sure}" Padding="80,0,0,0" FontSize="20" VerticalOptions="Center" />
+                                <ImageButton Source="play.png" Clicked="PlayButtonClicked" WidthRequest="40" HeightRequest="40" 
+                         BackgroundColor="Transparent" BorderColor="Transparent" />
+                                <ImageButton Source="pause.png" Clicked="StopButtonClicked" WidthRequest="40" HeightRequest="40" 
+                         BackgroundColor="Transparent" BorderColor="Transparent" />
+                            </StackLayout>
+                        </Grid>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </AbsoluteLayout>
+</ContentPage>
